@@ -128,7 +128,36 @@ import { AppShell, Button, Card } from "@nogup/design-system";
 
 Peer dependencies in the app: `react` and `react-dom` (^18 or ^19).
 
-### Option B — npm link
+### Option B — Install from GitHub (no npm registry)
+
+In the app `package.json`:
+
+```json
+"@nogup/design-system": "github:YOUR_USER/nogup-design-system"
+```
+
+Then:
+
+```bash
+npm install
+```
+
+**Important:** this repo **commits `dist/`** so GitHub installs work without running a build on your machine. After you change source here, run `npm run build` and **commit `dist/`** before pushing.
+
+In the app entry, import **styles**, not the bare package name:
+
+```tsx
+import "@nogup/design-system/styles/pushups";
+```
+
+Wrong (will error or load nothing useful):
+
+```tsx
+import "@nogup/design-system"; // only for JS components — needs dist/index.js
+import "nogup-design-system";   // wrong package name
+```
+
+### Option C — npm link
 
 ```bash
 cd nogup-design-system
@@ -139,7 +168,7 @@ cd ../nogup-pushups
 npm link @nogup/design-system
 ```
 
-### Option C — Publish to npm (or GitHub Packages)
+### Option D — Publish to npm (or GitHub Packages)
 
 1. Log in and set scope if needed:
 

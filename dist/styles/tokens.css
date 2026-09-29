@@ -1,0 +1,36 @@
+:root {
+  color-scheme: dark;
+  --ng-bg: #0b1220;
+  --ng-bg-elevated: #111827;
+  --ng-card: #162032;
+  --ng-border: rgba(148, 163, 184, 0.16);
+  --ng-text: #f8fafc;
+  --ng-muted: #94a3b8;
+  --ng-accent: #f97316;
+  --ng-accent-strong: #ea580c;
+  --ng-accent-soft: #fdba74;
+  --ng-success: #22c55e;
+  --ng-warn: #fbbf24;
+  --ng-danger: #f87171;
+  --ng-info: #3b82f6;
+  --ng-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  --ng-radius-sm: 8px;
+  --ng-radius-md: 12px;
+  --ng-radius-lg: 16px;
+  --ng-radius-xl: 20px;
+  --ng-shell-max: 720px;
+
+  /* Legacy aliases used across nogup apps */
+  --bg: var(--ng-bg);
+  --bg-elevated: var(--ng-bg-elevated);
+  --card: var(--ng-card);
+  --border: var(--ng-border);
+  --text: var(--ng-text);
+  --muted: var(--ng-muted);
+  --accent: var(--ng-accent);
+  --accent-strong: var(--ng-accent-strong);
+  --success: var(--ng-success);
+  --warn: var(--ng-warn);
+  --danger: var(--ng-danger);
+  --shadow: var(--ng-shadow);
+}
