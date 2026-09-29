@@ -1,0 +1,62 @@
+.app-shell {
+  width: 100%;
+  max-width: var(--ng-shell-max);
+  margin: 0 auto;
+  padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
+  overflow-x: hidden;
+}
+
+.dashboard,
+.auth-shell {
+  max-width: 100%;
+}
+
+.loading-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.auth-shell {
+  min-height: calc(100vh - 2rem);
+  display: grid;
+  place-items: center;
+}
+
+.auth-card {
+  width: 100%;
+}
+
+.auth-form,
+.log-form {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1.25rem;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.topbar > div {
+  min-width: 0;
+  flex: 1 1 12rem;
+}
+
+@media (max-width: 520px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .topbar > div {
+    flex: none;
+    width: 100%;
+  }
+}

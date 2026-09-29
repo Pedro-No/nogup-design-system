@@ -1,0 +1,296 @@
+.calendar-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 1rem;
+  padding-bottom: 0.4rem;
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.calendar-col-meal {
+  width: 3.25rem;
+}
+
+.calendar-col-day {
+  width: 3.1rem;
+}
+
+.calendar-table th,
+.calendar-table td {
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.2rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.calendar-meal-heading,
+.calendar-day-heading {
+  background: rgba(15, 23, 42, 0.72);
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
+.calendar-meal-label {
+  background: rgba(22, 32, 50, 0.72);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  padding-inline: 0.15rem;
+}
+
+.slot-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  width: 100%;
+  min-height: 2.85rem;
+  padding: 0.3rem 0.15rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.55);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.slot-btn.is-empty {
+  min-height: 2.65rem;
+}
+
+.slot-btn-add {
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.slot-btn-people {
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.slot-btn-people-unit {
+  margin-left: 0.1rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.slot-btn-meal {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.62rem;
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--ng-accent-soft);
+}
+
+.slot-btn:active {
+  transform: scale(0.98);
+}
+
+.slot-btn.selected {
+  outline: 2px solid rgba(249, 115, 22, 0.55);
+  outline-offset: -2px;
+  border-color: rgba(249, 115, 22, 0.45);
+}
+
+.slot-btn.filled {
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.slot-btn.planned {
+  background: rgba(249, 115, 22, 0.14);
+  border-color: rgba(249, 115, 22, 0.35);
+}
+
+.slot-editor {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.slot-editor h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.editor-actions,
+.plan-actions {
+  margin-top: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.plan-actions {
+  align-items: center;
+}
+
+.plan-actions .status-message {
+  margin: 0;
+  font-weight: 600;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.meal-form {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.ingredient-input-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 0.65rem;
+  align-items: end;
+}
+
+@media (max-width: 520px) {
+  .ingredient-input-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ingredient-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.ingredient-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  background: rgba(249, 115, 22, 0.14);
+  color: var(--ng-accent-soft);
+  border-radius: 999px;
+  padding: 0.35rem 0.55rem 0.35rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.remove-ingredient-btn {
+  border: none;
+  border-radius: 999px;
+  width: 1.35rem;
+  height: 1.35rem;
+  padding: 0;
+  background: rgba(249, 115, 22, 0.35);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.remove-ingredient-btn:active {
+  transform: scale(0.95);
+}
+
+.status-text {
+  margin: 1rem 0 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.meal-list {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.meal-card {
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid var(--border);
+}
+
+.meal-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.meal-card h4 {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.meal-card ul {
+  margin: 0 0 0.5rem;
+  padding-left: 1.1rem;
+}
+
+.meal-card ul,
+.plan-list {
+  color: var(--text);
+}
+
+.recipe-text {
+  margin: 0;
+  white-space: pre-wrap;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.plan-list {
+  margin: 0 0 1rem;
+  padding-left: 1.1rem;
+}
+
+.plan-list:last-child {
+  margin-bottom: 0;
+}
+
+.plan-section-title {
+  margin: 0 0 0.65rem;
+  font-size: 1rem;
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border-radius: var(--ng-radius-md);
+  overflow: hidden;
+}
+
+.lang-btn img {
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 999px;
+  object-fit: cover;
+  display: block;
+}

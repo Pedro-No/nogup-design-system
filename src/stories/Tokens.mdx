@@ -1,0 +1,42 @@
+import { Meta, Title, Subtitle, ColorPalette, ColorItem } from "@storybook/blocks";
+import { nogupTokens } from "../tokens";
+
+<Meta title="Foundations/Tokens" />
+
+<Title>Design tokens</Title>
+<Subtitle>
+  CSS variables live in `tokens.css` (`--ng-*` with legacy aliases). TypeScript
+  mirror: `nogupTokens` from the package entry.
+</Subtitle>
+
+## Color palette
+
+<ColorPalette>
+  <ColorItem title="Background" subtitle="--ng-bg" colors={{ Default: nogupTokens.bg }} />
+  <ColorItem title="Elevated" subtitle="--ng-bg-elevated" colors={{ Default: nogupTokens.bgElevated }} />
+  <ColorItem title="Card" subtitle="--ng-card" colors={{ Default: nogupTokens.card }} />
+  <ColorItem title="Text" subtitle="--ng-text" colors={{ Default: nogupTokens.text }} />
+  <ColorItem title="Muted" subtitle="--ng-muted" colors={{ Default: nogupTokens.muted }} />
+  <ColorItem title="Accent" subtitle="--ng-accent" colors={{ Default: nogupTokens.accent }} />
+  <ColorItem title="Accent strong" subtitle="--ng-accent-strong" colors={{ Default: nogupTokens.accentStrong }} />
+  <ColorItem title="Success" subtitle="--ng-success" colors={{ Default: nogupTokens.success }} />
+  <ColorItem title="Warning" subtitle="--ng-warn" colors={{ Default: nogupTokens.warn }} />
+  <ColorItem title="Danger" subtitle="--ng-danger" colors={{ Default: nogupTokens.danger }} />
+</ColorPalette>
+
+## Layout & radius
+
+| Token | Value |
+|-------|-------|
+| Shell max width | `{nogupTokens.shellMaxWidth}` |
+| Radius sm / md / lg / xl | `{nogupTokens.radiusSm}` / `{nogupTokens.radiusMd}` / `{nogupTokens.radiusLg}` / `{nogupTokens.radiusXl}` |
+| Shadow | `{nogupTokens.shadow}` |
+
+## Style bundles
+
+| Import | Use when |
+|--------|----------|
+| `@nogup/design-system/styles/core` | Shared UI only |
+| `@nogup/design-system/styles/pushups` | Leaderboard, profile, timer |
+| `@nogup/design-system/styles/meal-planner` | Calendar & meal library |
+| `@nogup/design-system/styles` | All patterns |
