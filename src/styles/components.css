@@ -258,3 +258,22 @@
     text-align: center;
   }
 }
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border-radius: var(--ng-radius-md);
+  overflow: hidden;
+}
+
+.lang-btn img {
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 999px;
+  object-fit: cover;
+  display: block;
+}

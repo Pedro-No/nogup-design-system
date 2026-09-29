@@ -213,6 +213,7 @@ import {
   Button,
   Card,
   CardHeader,
+  LanguageToggle,
   PageHeader,
   Stat,
   ViewTabs,
