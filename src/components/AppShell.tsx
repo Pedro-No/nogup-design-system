@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from "react";
-import { cn } from "../utils/cn";
+import { classNames } from "../utils/classNames";
 
 export interface AppShellProps extends HTMLAttributes<HTMLDivElement> {
   centered?: boolean;
@@ -12,7 +12,7 @@ export function AppShell({
 }: AppShellProps) {
   return (
     <div
-      className={cn("app-shell", centered && "loading-shell", className)}
+      className={classNames("app-shell", centered && "loading-shell", className)}
       {...props}
     />
   );

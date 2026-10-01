@@ -238,16 +238,37 @@ CSS variables: `--ng-*` (canonical) and legacy `--bg`, `--accent`, etc.
 import {
   Alert,
   AppShell,
+  AuthLayout,
   Badge,
   Button,
   Card,
   CardHeader,
+  DashboardLayout,
   LanguageToggle,
   PageHeader,
+  ProfileStat,
+  ProfileStatsGrid,
   Stat,
+  StatsRow,
   ViewTabs,
+  WeekNavigator,
+  WeeklyBarChart,
+  buildWeekChartSeries,
   nogupTokens,
 } from "@nogup/design-system";
+```
+
+Charts use [Recharts](https://recharts.org/) — add `recharts` alongside the design system in apps that render `WeeklyBarChart`.
+
+Typical page shell:
+
+```tsx
+<AppShell>
+  <DashboardLayout>
+    <PageHeader eyebrow="…" title="…" actions={…} />
+    {/* … */}
+  </DashboardLayout>
+</AppShell>
 ```
 
 `Button` variants: `primary` | `ghost` | `small` | `link` (maps to existing `.btn` classes).

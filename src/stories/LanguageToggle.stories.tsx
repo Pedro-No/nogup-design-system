@@ -31,18 +31,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Interactive: Story = {
-  args: {
-    language: "en",
-  },
-  render: function InteractiveLanguageToggle(args) {
-    const [language, setLanguage] = useState<NogupLanguage>(
-      args.language ?? "en",
-    );
+  render: function InteractiveLanguageToggle() {
+    const [language, setLanguage] = useState<NogupLanguage>("en");
     return (
       <LanguageToggle
-        {...args}
         language={language}
         onLanguageChange={setLanguage}
+        ariaLabel="Change language"
+        storageKey={null}
       />
     );
   },

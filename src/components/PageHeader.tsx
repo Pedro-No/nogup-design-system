@@ -1,5 +1,5 @@
 import type { HTMLAttributes, ReactNode } from "react";
-import { cn } from "../utils/cn";
+import { classNames } from "../utils/classNames";
 
 export interface PageHeaderProps
   extends Omit<HTMLAttributes<HTMLElement>, "title"> {
@@ -16,7 +16,7 @@ export function PageHeader({
   ...props
 }: PageHeaderProps) {
   return (
-    <header className={cn("topbar", className)} {...props}>
+    <header className={classNames("topbar", className)} {...props}>
       <div>
         {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
         <h1>{title}</h1>

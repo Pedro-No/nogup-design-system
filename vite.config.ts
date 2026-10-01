@@ -10,6 +10,7 @@ export default defineConfig({
     : [
         dts({
           include: ["src"],
+          exclude: ["src/stories/**", "src/**/*.stories.*", "src/**/*.mdx"],
           rollupTypes: true,
         }),
       ],
@@ -20,7 +21,12 @@ export default defineConfig({
       fileName: "index",
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
+      external: [
+        "react",
+        "react-dom",
+        "react/jsx-runtime",
+        "recharts",
+      ],
     },
     copyPublicDir: false,
   },

@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes } from "react";
-import { cn } from "../utils/cn";
+import { classNames } from "../utils/classNames";
 import flagFr from "../assets/flags/fr.png";
 import flagPt from "../assets/flags/pt.png";
 import flagUk from "../assets/flags/uk.png";
@@ -70,7 +70,7 @@ export function LanguageToggle({
   return (
     <button
       type={type}
-      className={cn("btn ghost lang-btn", className)}
+      className={classNames("btn ghost lang-btn", className)}
       title={ariaLabel}
       aria-label={ariaLabel}
       onClick={handleClick}

@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from "react";
-import { cn } from "../utils/cn";
+import { classNames } from "../utils/classNames";
 
 export type AlertTone = "warn" | "error";
 
@@ -8,5 +8,5 @@ export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export function Alert({ tone, className, ...props }: AlertProps) {
-  return <div className={cn("alert", tone, className)} role="alert" {...props} />;
+  return <div className={classNames("alert", tone, className)} role="alert" {...props} />;
 }

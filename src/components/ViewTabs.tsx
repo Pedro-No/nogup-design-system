@@ -1,5 +1,5 @@
 import type { HTMLAttributes, ReactNode } from "react";
-import { cn } from "../utils/cn";
+import { classNames } from "../utils/classNames";
 
 export interface ViewTabItem {
   id: string;
@@ -23,7 +23,7 @@ export function ViewTabs({
   ...props
 }: ViewTabsProps) {
   return (
-    <nav className={cn("view-tabs", className)} aria-label={ariaLabel} {...props}>
+    <nav className={classNames("view-tabs", className)} aria-label={ariaLabel} {...props}>
       {items.map((item) => (
         <button
           key={item.id}

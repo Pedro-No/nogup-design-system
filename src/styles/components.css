@@ -78,6 +78,19 @@
   padding: 0;
   margin-top: 1rem;
   cursor: pointer;
+  font: inherit;
+  line-height: 1.25;
+}
+
+/* Inline with buttons (install banner, toolbars) — not below auth forms */
+.install-actions .link-btn,
+.install-banner > .link-btn {
+  margin-top: 0;
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  min-height: 2.25rem;
+  padding: 0 0.15rem;
 }
 
 .view-tabs {
@@ -234,12 +247,138 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+@keyframes nogup-skeleton-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.skeleton {
+  border-radius: var(--ng-radius-sm);
+  background: rgba(148, 163, 184, 0.16);
+  animation: nogup-skeleton-pulse 1.35s ease-in-out infinite;
+}
+
+.skeleton-text {
+  height: 0.85rem;
+  border-radius: 999px;
+}
+
+.skeleton-stat-label {
+  width: 45%;
+  max-width: 6rem;
+}
+
+.skeleton-stat-value {
+  height: 2rem;
+  width: 55%;
+  max-width: 5rem;
+  margin-top: 0.35rem;
+  border-radius: var(--ng-radius-sm);
+}
+
+.skeleton-prompt-heading {
+  display: grid;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.skeleton-eyebrow {
+  width: 40%;
+  max-width: 9rem;
+}
+
+.skeleton-title {
+  height: 1.75rem;
+  width: 70%;
+  max-width: 14rem;
+  border-radius: var(--ng-radius-sm);
+}
+
+.skeleton-phase-badge {
+  width: 5.5rem;
+  height: 1.65rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.skeleton-countdown {
+  height: 3rem;
+  width: 55%;
+  max-width: 10rem;
+  margin: 1rem auto 0.75rem;
+  border-radius: var(--ng-radius-md);
+}
+
+.skeleton-primary-btn {
+  height: 2.85rem;
+  width: 100%;
+  border-radius: var(--ng-radius-md);
+}
+
+.skeleton-ladder-title {
+  height: 1.35rem;
+  width: 5rem;
+  border-radius: var(--ng-radius-sm);
+}
+
+.skeleton-ladder-timer {
+  width: 7rem;
+}
+
+.skeleton-ladder-list {
+  pointer-events: none;
+}
+
+.skeleton-ladder-row {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.35);
+  border: 1px solid transparent;
+}
+
+.skeleton-rank {
+  width: 1.25rem;
+  height: 1.1rem;
+}
+
+.skeleton-name {
+  width: 75%;
+}
+
+.skeleton-score {
+  width: 2.5rem;
+  height: 1.1rem;
+}
+
+.skeleton-chart {
+  width: 100%;
+  height: 280px;
+  border-radius: var(--ng-radius-md);
+  margin-top: 0.25rem;
 }
 
 @media (max-width: 520px) {
   .install-banner {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .install-actions {
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .card-header,

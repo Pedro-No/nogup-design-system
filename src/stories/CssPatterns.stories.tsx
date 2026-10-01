@@ -59,13 +59,13 @@ export const PhaseBadges: Story = {
 export const InstallBanner: Story = {
   render: () => (
     <div className="install-banner" style={{ maxWidth: 520 }}>
-      <p>Add this app to your home screen for reminders.</p>
+      <p>Install the app for reminders on your home screen.</p>
       <div className="install-actions">
         <button type="button" className="btn small">
-          Dismiss
-        </button>
-        <button type="button" className="btn primary">
           Install
+        </button>
+        <button type="button" className="link-btn">
+          Not now
         </button>
       </div>
     </div>

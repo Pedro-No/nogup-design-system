@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes } from "react";
-import { cn } from "../utils/cn";
+import { classNames } from "../utils/classNames";
 
 export type ButtonVariant = "primary" | "ghost" | "small" | "link";
 
@@ -23,7 +23,7 @@ export function Button({
   return (
     <button
       type={type}
-      className={cn(variantClass[variant], className)}
+      className={classNames(variantClass[variant], className)}
       {...props}
     />
   );
