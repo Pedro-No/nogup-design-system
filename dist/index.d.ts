@@ -17,10 +17,19 @@ export declare interface AppShellProps extends HTMLAttributes<HTMLDivElement> {
     centered?: boolean;
 }
 
+export declare function AuthLayout({ className, ...props }: AuthLayoutProps): JSX.Element;
+
+/** Centered auth screen wrapper (`.auth-shell`). */
+export declare interface AuthLayoutProps extends HTMLAttributes<HTMLDivElement> {
+}
+
 export declare function Badge({ className, ...props }: BadgeProps): JSX.Element;
 
 export declare interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
 }
+
+/** Build seven daily points (Mon–Sun) for a UTC week from sparse daily counts. */
+export declare function buildWeekChartSeries(rows: DailyCountRow[], weekStart: Date): WeeklyChartPoint[];
 
 export declare function Button({ variant, className, type, ...props }: ButtonProps): JSX.Element;
 
@@ -37,9 +46,25 @@ export declare function CardHeader({ className, ...props }: HTMLAttributes<HTMLD
 export declare interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
-export declare function cn(...values: Array<string | false | null | undefined>): string;
+/** Join CSS class strings; skips `false`, `null`, and `undefined` (handy for conditional classes). */
+export declare function classNames(...values: Array<string | false | null | undefined>): string;
 
 export declare function cycleNogupLanguage(language: NogupLanguage): NogupLanguage;
+
+export declare interface DailyCountRow {
+    date: string;
+    count: number;
+}
+
+export declare function DashboardLayout({ className, ...props }: DashboardLayoutProps): JSX.Element;
+
+/** Inner page wrapper (`.dashboard`) used inside {@link AppShell}. */
+export declare interface DashboardLayoutProps extends HTMLAttributes<HTMLDivElement> {
+}
+
+export declare function dateKey(date: Date): string;
+
+export declare function dayChartLabel(date: Date): string;
 
 export declare function LanguageToggle({ language, ariaLabel, onLanguageChange, storageKey, flags, languageOrder, className, type, ...props }: LanguageToggleProps): JSX.Element;
 
@@ -56,6 +81,20 @@ export declare interface LanguageToggleProps extends Omit<ButtonHTMLAttributes<H
     flags?: Record<NogupLanguage, string>;
     languageOrder?: readonly NogupLanguage[];
 }
+
+/** Recharts styling aligned with Nogup tokens. */
+export declare const nogupChartTheme: {
+    readonly barFill: "#f97316";
+    readonly barActiveFill: "#fb923c";
+    readonly barActiveStroke: "#fdba74";
+    readonly gridStroke: "rgba(148, 163, 184, 0.12)";
+    readonly axisTickFill: "#94a3b8";
+    readonly tooltipBackground: "#111827";
+    readonly tooltipBorder: "1px solid rgba(148, 163, 184, 0.2)";
+    readonly tooltipBorderRadius: 8;
+    readonly barRadius: [number, number, number, number];
+    readonly maxBarSize: 42;
+};
 
 /** Languages used across Nogup apps (meal planner i18n). */
 export declare type NogupLanguage = "en" | "pt" | "fr";
@@ -97,11 +136,31 @@ export declare interface PageHeaderProps extends Omit<HTMLAttributes<HTMLElement
     actions?: ReactNode;
 }
 
+export declare function ProfileStat({ icon, label, value, className, ...props }: ProfileStatProps): JSX.Element;
+
+export declare interface ProfileStatProps extends HTMLAttributes<HTMLDivElement> {
+    icon: ReactNode;
+    label: ReactNode;
+    value: ReactNode;
+}
+
+export declare function ProfileStatsGrid({ className, ...props }: ProfileStatsGridProps): JSX.Element;
+
+export declare interface ProfileStatsGridProps extends HTMLAttributes<HTMLDivElement> {
+}
+
+export declare function shiftWeek(weekStart: Date, weeks: number): Date;
+
 export declare function Stat({ label, value, className, ...props }: StatProps): JSX.Element;
 
 export declare interface StatProps extends HTMLAttributes<HTMLDivElement> {
     label: string;
     value: string | number;
+}
+
+export declare function StatsRow({ className, ...props }: StatsRowProps): JSX.Element;
+
+export declare interface StatsRowProps extends HTMLAttributes<HTMLElement> {
 }
 
 export declare interface ViewTabItem {
@@ -117,5 +176,40 @@ export declare interface ViewTabsProps extends Omit<HTMLAttributes<HTMLElement>,
     onChange: (id: string) => void;
     ariaLabel?: string;
 }
+
+export declare function WeeklyBarChart({ data, height, regionLabel, valueFormatter, className, ...props }: WeeklyBarChartProps): JSX.Element;
+
+export declare interface WeeklyBarChartProps extends HTMLAttributes<HTMLDivElement> {
+    data: WeeklyChartPoint[];
+    height?: number;
+    regionLabel?: string;
+    valueFormatter?: (value: number) => string;
+    /** @deprecated Tooltip shows the formatted value only; kept for API compatibility. */
+    tooltipValueLabel?: string;
+}
+
+export declare interface WeeklyChartPoint {
+    date: string;
+    label: string;
+    value: number;
+}
+
+export declare function WeekNavigator({ onPrevious, onNext, onCurrentWeek, isCurrentWeek, currentWeekLabel, previousLabel, nextLabel, prevIcon, nextIcon, className, ...props }: WeekNavigatorProps): JSX.Element;
+
+export declare interface WeekNavigatorProps extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
+    onPrevious: () => void;
+    onNext: () => void;
+    onCurrentWeek: () => void;
+    isCurrentWeek?: boolean;
+    currentWeekLabel?: ReactNode;
+    previousLabel?: string;
+    nextLabel?: string;
+    prevIcon?: ReactNode;
+    nextIcon?: ReactNode;
+}
+
+export declare function weekRangeLabel(weekStart: Date): string;
+
+export declare function weekStartFor(dateString: string): Date;
 
 export { }

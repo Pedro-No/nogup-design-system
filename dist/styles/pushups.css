@@ -90,6 +90,7 @@
   overflow-y: hidden;
   padding-bottom: 0.4rem;
   scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .weekly-chart {
@@ -97,6 +98,49 @@
   height: 280px;
   position: relative;
   overflow: hidden;
+  touch-action: pan-x;
+}
+
+/* Recharts defaults use light tooltip/cursor fills that flash on mobile tap */
+.weekly-chart .recharts-wrapper,
+.weekly-chart .recharts-surface {
+  outline: none;
+}
+
+.weekly-chart .recharts-tooltip-cursor {
+  fill: transparent !important;
+}
+
+.weekly-chart .recharts-default-tooltip {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.nogup-chart-tooltip {
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--ng-radius-sm);
+  background: #111827;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.nogup-chart-tooltip-label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.nogup-chart-tooltip-value {
+  margin: 0.2rem 0 0;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--ng-accent-soft);
+  font-variant-numeric: tabular-nums;
 }
 
 .timer-panel,
