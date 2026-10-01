@@ -17,11 +17,11 @@ export function PageHeader({
 }: PageHeaderProps) {
   return (
     <header className={classNames("topbar", className)} {...props}>
-      <div>
-        {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-        <h1>{title}</h1>
+      {eyebrow ? <p className="eyebrow topbar-eyebrow">{eyebrow}</p> : null}
+      <div className="topbar-main">
+        <h1 className="topbar-title">{title}</h1>
+        {actions ? <div className="topbar-actions">{actions}</div> : null}
       </div>
-      {actions}
     </header>
   );
 }

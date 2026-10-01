@@ -27,7 +27,7 @@ export const AppShellWithDashboard: Story = {
             eyebrow="Welcome back"
             title="Jordan"
             actions={
-              <div className="topbar-actions">
+              <>
                 <LanguageToggle
                   language={language}
                   onLanguageChange={setLanguage}
@@ -37,7 +37,7 @@ export const AppShellWithDashboard: Story = {
                 <Button variant="ghost" type="button">
                   Sign out
                 </Button>
-              </div>
+              </>
             }
           />
           <p className="muted">Main content lives inside `.dashboard`.</p>
