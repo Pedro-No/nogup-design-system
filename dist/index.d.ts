@@ -46,6 +46,9 @@ export declare function CardHeader({ className, ...props }: HTMLAttributes<HTMLD
 export declare interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
+/** Weekly chart area placeholder. */
+export declare function ChartSkeleton({ className, ...props }: SkeletonProps): JSX.Element;
+
 /** Join CSS class strings; skips `false`, `null`, and `undefined` (handy for conditional classes). */
 export declare function classNames(...values: Array<string | false | null | undefined>): string;
 
@@ -66,6 +69,11 @@ export declare function dateKey(date: Date): string;
 
 export declare function dayChartLabel(date: Date): string;
 
+/** Ladder card with row placeholders. */
+export declare function LadderCardSkeleton({ rows, className, ...props }: SkeletonProps & {
+    rows?: number;
+}): JSX.Element;
+
 export declare function LanguageToggle({ language, ariaLabel, onLanguageChange, storageKey, flags, languageOrder, className, type, ...props }: LanguageToggleProps): JSX.Element;
 
 export declare interface LanguageToggleProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onClick"> {
@@ -85,8 +93,9 @@ export declare interface LanguageToggleProps extends Omit<ButtonHTMLAttributes<H
 /** Recharts styling aligned with Nogup tokens. */
 export declare const nogupChartTheme: {
     readonly barFill: "#f97316";
-    readonly barActiveFill: "#fb923c";
-    readonly barActiveStroke: "#fdba74";
+    /** Selected day — solid fill + stroke (no Recharts activeBar overlay). */
+    readonly barSelectedFill: "#ea580c";
+    readonly barSelectedStroke: "#fdba74";
     readonly gridStroke: "rgba(148, 163, 184, 0.12)";
     readonly axisTickFill: "#94a3b8";
     readonly tooltipBackground: "#111827";
@@ -149,7 +158,18 @@ export declare function ProfileStatsGrid({ className, ...props }: ProfileStatsGr
 export declare interface ProfileStatsGridProps extends HTMLAttributes<HTMLDivElement> {
 }
 
+/** Prompt / timer card placeholder (pushups game view). */
+export declare function PromptCardSkeleton({ className, ...props }: SkeletonProps): JSX.Element;
+
 export declare function shiftWeek(weekStart: Date, weeks: number): Date;
+
+/** Shimmer placeholder block; set size with className or style. */
+export declare function Skeleton({ className, ...props }: SkeletonProps): JSX.Element;
+
+export declare interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
+}
+
+export declare function SkeletonText({ className, ...props }: SkeletonProps): JSX.Element;
 
 export declare function Stat({ label, value, className, ...props }: StatProps): JSX.Element;
 
@@ -157,6 +177,9 @@ export declare interface StatProps extends HTMLAttributes<HTMLDivElement> {
     label: string;
     value: string | number;
 }
+
+/** Matches `.stat` layout while data loads. */
+export declare function StatSkeleton({ className, ...props }: SkeletonProps): JSX.Element;
 
 export declare function StatsRow({ className, ...props }: StatsRowProps): JSX.Element;
 

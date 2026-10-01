@@ -101,14 +101,28 @@
   touch-action: pan-x;
 }
 
-/* Recharts defaults use light tooltip/cursor fills that flash on mobile tap */
+/* Recharts draws duplicate “active” shapes + light cursors on tap (reads as white wash) */
 .weekly-chart .recharts-wrapper,
-.weekly-chart .recharts-surface {
-  outline: none;
+.weekly-chart .recharts-surface,
+.weekly-chart .recharts-wrapper svg {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.weekly-chart .recharts-tooltip-cursor {
-  fill: transparent !important;
+.weekly-chart .recharts-surface:focus,
+.weekly-chart .recharts-wrapper:focus,
+.weekly-chart .recharts-wrapper:focus-visible {
+  outline: none !important;
+}
+
+.weekly-chart .recharts-tooltip-cursor,
+.weekly-chart .recharts-active-bar,
+.weekly-chart .recharts-active-shape {
+  display: none !important;
+  fill: none !important;
+  stroke: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .weekly-chart .recharts-default-tooltip {
@@ -117,6 +131,11 @@
   border: none !important;
   background: transparent !important;
   box-shadow: none !important;
+}
+
+.weekly-chart .recharts-bar-rectangle:focus,
+.weekly-chart .recharts-bar-rectangle:focus-visible {
+  outline: none !important;
 }
 
 .nogup-chart-tooltip {
